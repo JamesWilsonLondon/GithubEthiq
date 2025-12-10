@@ -62,11 +62,18 @@
       height: 34px;
       font-size: 13px;
       color: var(--text);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
     }
 
-    .top-right { font-size: 13px; color: var(--muted); display:flex; align-items:center; gap:10px; }
+    .top-right {
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-    /* LAYOUT */
+    /* MAIN LAYOUT */
     .layout {
       display: grid;
       grid-template-columns: 260px minmax(0, 1fr) 300px;
@@ -94,15 +101,15 @@
       border-radius: 6px;
       font-size: 14px;
       color: var(--text);
-      transition: background 0.15s ease, border 0.15s ease;
+      transition: background 0.15s ease;
     }
 
-    /* ✅ FIXED HOVER */
+    /* softer hover, no black block */
     .nav-list a:hover {
       background: rgba(110,118,129,0.1);
     }
 
-    /* MAIN */
+    /* MAIN COLUMN */
     .main { padding: 24px; }
 
     .page-title { margin-bottom: 16px; }
@@ -115,7 +122,7 @@
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 20px;
+      padding: 20px 20px 14px;
       margin-bottom: 20px;
     }
 
@@ -149,6 +156,9 @@
       cursor: pointer;
       background: var(--panel-soft);
       color: var(--text);
+      transition: all 0.12s ease;
+      font-weight: 500;
+      display: inline-block;
     }
 
     .btn.primary {
@@ -157,7 +167,9 @@
       color: #ffffff;
     }
 
-    /* RIGHT BAR */
+    .btn:active { transform: translateY(1px); }
+
+    /* RIGHTBAR */
     .rightbar {
       background: var(--panel);
       border-left: 1px solid var(--border);
@@ -167,7 +179,30 @@
 
     .right-title { font-size: 14px; margin-bottom: 8px; }
 
+    .activity-item {
+      border-left: 1px solid var(--border);
+      padding-left: 10px;
+      margin-left: 4px;
+      padding-bottom: 14px;
+      position: relative;
+    }
+
+    .activity-item::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      position: absolute;
+      left: -5px;
+      top: 2px;
+    }
+
+    .activity-item span { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+
     .right-section { margin-bottom: 24px; }
+
+    .right-cta { margin-bottom: 8px; }
 
     /* LIVE DOT */
     .live-dot {
@@ -185,15 +220,74 @@
       100% { box-shadow: 0 0 0 0 rgba(63,185,80,0); }
     }
 
-    /* MOBILE */
+    /* RESPONSIVE */
     @media (max-width: 960px) {
       .layout { grid-template-columns: 1fr; }
       .sidebar, .rightbar { display: none; }
       .main { padding: 16px; }
-      .top-search { max-width: 100%; }
+      header { padding: 0 10px; }
+      .top-search { margin: 0 8px; max-width: 100%; }
     }
 
-    /* LIGHT MODE */
+    /* EXTRA MOBILE BREATHING ROOM */
+    @media (max-width: 540px) {
+      header {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px;
+      }
+
+      .brand { font-size: 14px; }
+
+      .top-search {
+        order: 3;
+        width: 100%;
+        margin: 6px 0 0;
+        font-size: 14px;
+        padding: 10px 12px;
+      }
+
+      .top-right { display: none; }
+
+      .page-title h1 { font-size: 20px; }
+      .page-title p  { font-size: 14px; }
+
+      .panel {
+        padding: 16px;
+        border-radius: 14px;
+      }
+
+      .panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .panel-header h2 { font-size: 15px; }
+      .panel-header span { font-size: 12px; }
+
+      .job { padding: 14px 0; }
+      .job-title { font-size: 15px; }
+      .job-meta  { font-size: 13px; }
+
+      .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .live-dot { margin-left: 4px; }
+    }
+
+    /* LIGHT MODE OVERRIDES */
     body.light {
       --bg: #f7f6f3;
       --panel: #ffffff;
@@ -208,6 +302,7 @@
 
     body.light header { background:#f6f8fa; }
 
+    /* TOGGLE BUTTON */
     .mode-toggle {
       background: var(--panel-soft);
       border: 1px solid var(--border);
@@ -216,11 +311,13 @@
       padding: 4px 10px;
       font-size: 13px;
       cursor: pointer;
+      transition: all 0.15s ease;
     }
+
+    .mode-toggle:hover { opacity: 0.85; }
 
   </style>
 </head>
-
 <body class="light">
 
 <header>
@@ -228,7 +325,7 @@
   <input class="top-search" placeholder="Search roles, companies, docs…" />
   <div class="top-right">
     <span>Product and engineering recruitment</span>
-    <button class="mode-toggle" id="modeToggle">🌙</button>
+    <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark mode">🌙</button>
   </div>
 </header>
 
@@ -258,11 +355,21 @@
       <p>Product and engineering hiring, written down and kept honest. UK · Europe · US.</p>
     </div>
 
+    <!-- WHAT IS ETHIQ -->
     <section class="panel">
-      <div class="panel-header"><h2>What is ETHIQ</h2><span>Not an agency pitch</span></div>
-      <p>ETHIQ is a specialist search partner for ambitious tech product companies across the UK, Europe and the US. No CV blasts, no pressure selling, no lock-in contracts. If it fits, great. If not, that is fine too.</p>
+      <div class="panel-header">
+        <h2>What is ETHIQ</h2>
+        <span>Not an agency pitch</span>
+      </div>
+      <p>
+        ETHIQ is a specialist search partner for ambitious tech product companies across the UK, Europe and the US.
+        We work with a selected group of partners at any one time, stay close to the teams and the roadmap, and treat
+        hiring as part of the product work. No CV blasts, no pressure selling, no lock-in contracts. If our way of
+        working makes sense to you, great. If it does not, that is fine too.
+      </p>
     </section>
 
+    <!-- FEATURED ROLES -->
     <section class="panel">
       <div class="panel-header">
         <h2>Featured roles <span class="live-dot"></span></h2>
@@ -273,10 +380,13 @@
         <div class="job-title">Senior Product Engineer</div>
         <div class="job-meta">London · £95k–£115k · TypeScript, React, Node</div>
       </div>
-
       <div class="job">
         <div class="job-title">Platform Engineer</div>
         <div class="job-meta">Remote EU · €90k–€110k · Go, Kubernetes, GCP</div>
+      </div>
+      <div class="job">
+        <div class="job-title">Founding Mobile Engineer</div>
+        <div class="job-meta">New York · $150k–$180k · Swift / React Native</div>
       </div>
 
       <div class="cta-row">
@@ -285,12 +395,67 @@
       </div>
     </section>
 
+    <!-- FOUNDERS -->
     <section class="panel">
       <div class="panel-header"><h2>Founders</h2><span>Who you actually work with</span></div>
-      <p><strong>Anton Howe</strong> and <strong>Fraser Tait</strong> have spent the last decade hiring for high growth tech companies.</p>
+      <p>
+        <strong>Anton Howe</strong> and <strong>Fraser Tait</strong> have spent the last decade hiring for high growth
+        tech companies. Instead of lobbing CVs over the fence, they embed with product and engineering leaders as a
+        forward deployed recruiting team. Performance is measured on the long-term impact of the people hired, not just
+        how many placements land in a quarter.
+      </p>
+      <p style="margin-top:10px; font-size:13px;"><a href="#">View the rest of the team ↗</a></p>
+    </section>
+
+    <!-- RECENT OUTCOMES -->
+    <section class="panel">
+      <div class="panel-header"><h2>Recent outcomes</h2><span>Recent placements</span></div>
+      <ul style="font-size:14px; color:var(--muted); padding-left:18px;">
+        <li>Founding engineer hired for a NY-based AI startup in 31 days.</li>
+        <li>First platform hire for a Series A infra company in Berlin.</li>
+        <li>Two senior product engineers placed into a UK devtools scaleup.</li>
+      </ul>
+    </section>
+
+    <!-- WORKING WITH ETHIQ -->
+    <section class="panel">
+      <div class="panel-header"><h2>Working with ETHIQ</h2><span>For teams who care about hiring</span></div>
+      <p>
+        If you want a partner who will think about hiring with the same care you put into shipping product, we should
+        talk. If what you need is a steady stream of loosely qualified CVs at speed, we are probably not the right fit.
+        Either way, no hard feelings.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="#">Talk to ETHIQ</a>
+        <a class="btn" href="#">Browse roles</a>
+      </div>
     </section>
 
   </main>
+
+  <aside class="rightbar">
+    <div class="right-section">
+      <div class="right-title">Latest updates</div>
+
+      <div class="activity-item">New role added
+        <span>Platform Engineer · Remote EU</span>
+      </div>
+      <div class="activity-item">Handbook draft published
+        <span>How our recruitment process works</span>
+      </div>
+    </div>
+
+    <div class="right-section">
+      <div class="right-title">Start here</div>
+      <div class="right-cta"><a class="btn primary" href="#">Browse roles</a></div>
+      <div class="right-cta"><a class="btn" href="#">Talk to ETHIQ</a></div>
+    </div>
+
+    <div class="right-section" style="font-size:12px; color:var(--muted);">
+      UK · Europe · US<br />
+      Hiring for product-led tech companies.
+    </div>
+  </aside>
 
 </div>
 
@@ -298,14 +463,17 @@
   const toggle = document.getElementById('modeToggle');
   const body = document.body;
 
+  // Load saved preference
   if (localStorage.getItem('ethiq-theme') === 'dark') {
     body.classList.remove('light');
+    body.classList.add('dark');
     toggle.textContent = '☀️';
   }
 
   toggle.addEventListener('click', () => {
     const isLight = body.classList.contains('light');
     body.classList.toggle('light', !isLight);
+    body.classList.toggle('dark', isLight);
     toggle.textContent = isLight ? '☀️' : '🌙';
     localStorage.setItem('ethiq-theme', isLight ? 'dark' : 'light');
   });
