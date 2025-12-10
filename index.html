@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ETHIQ – Recruitment, with receipts</title>
+  <title>ETHIQ – Product and engineering recruitment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -13,31 +13,23 @@
       --border: #30363d;
       --text: #e6edf3;
       --muted: #8b949e;
-      --accent: #ff2f92;       /* bold pink */
-      --accent-dark: #c41f72;  /* darker pink for shadows */
+      --accent: #ff2f92;       
+      --accent-dark: #c41f72;  
+      --live: #3fb950;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica,
-        Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    /* TOP BAR (GitHub style) */
     header {
       height: 56px;
       background: #010409;
@@ -48,13 +40,7 @@
       padding: 0 16px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      font-size: 15px;
-    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; }
 
     .triangle {
       width: 0;
@@ -76,19 +62,14 @@
       color: var(--text);
     }
 
-    .top-right {
-      font-size: 13px;
-      color: var(--muted);
-    }
+    .top-right { font-size: 13px; color: var(--muted); }
 
-    /* LAYOUT GRID */
     .layout {
       display: grid;
       grid-template-columns: 260px minmax(0, 1fr) 300px;
       min-height: calc(100vh - 56px);
     }
 
-    /* LEFT SIDEBAR (repos-style nav) */
     .sidebar {
       background: var(--panel);
       border-right: 1px solid var(--border);
@@ -111,34 +92,15 @@
       color: var(--text);
     }
 
-    .nav-list a span {
-      color: var(--muted);
-      font-size: 12px;
-      margin-left: 4px;
-    }
+    .nav-list a:hover { background: #21262d; }
 
-    .nav-list a:hover {
-      background: #21262d;
-    }
+    .main { padding: 24px; }
 
-    /* MAIN COLUMN */
-    .main {
-      padding: 24px;
-    }
+    .page-title { margin-bottom: 16px; }
 
-    .page-title {
-      margin-bottom: 16px;
-    }
+    .page-title h1 { font-size: 22px; margin-bottom: 4px; }
 
-    .page-title h1 {
-      font-size: 22px;
-      margin-bottom: 4px;
-    }
-
-    .page-title p {
-      font-size: 13px;
-      color: var(--muted);
-    }
+    .page-title p { font-size: 13px; color: var(--muted); }
 
     .panel {
       background: var(--panel);
@@ -155,46 +117,20 @@
       margin-bottom: 10px;
     }
 
-    .panel-header h2 {
-      font-size: 16px;
-    }
+    .panel-header h2 { font-size: 16px; display: flex; align-items: center; gap: 8px; }
 
-    .panel-header span {
-      font-size: 12px;
-      color: var(--muted);
-    }
+    .panel-header span { font-size: 12px; color: var(--muted); }
 
-    .panel p {
-      font-size: 14px;
-      color: var(--muted);
-    }
+    .panel p { font-size: 14px; color: var(--muted); }
 
-    .job {
-      padding: 10px 0;
-      border-top: 1px solid var(--border);
-      font-size: 14px;
-    }
+    .job { padding: 10px 0; border-top: 1px solid var(--border); font-size: 14px; }
 
-    .job:first-child {
-      border-top: none;
-    }
+    .job:first-child { border-top: none; }
 
-    .job-title {
-      font-weight: 500;
-    }
+    .job-title { font-weight: 500; }
+    .job-meta { font-size: 13px; color: var(--muted); }
 
-    .job-meta {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* 3D BUTTONS (PostHog-y) */
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 
     .btn {
       padding: 8px 16px;
@@ -204,8 +140,7 @@
       cursor: pointer;
       background: var(--panel-soft);
       color: var(--text);
-      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4);
-      transform: translateY(0);
+      box-shadow: 0 4px 0 rgba(0,0,0,0.4);
       transition: all 0.12s ease;
       font-weight: 500;
       display: inline-block;
@@ -218,30 +153,8 @@
       box-shadow: 0 4px 0 var(--accent-dark);
     }
 
-    .btn:active {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
-    }
+    .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.4); }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      font-size: 11px;
-      color: var(--muted);
-      gap: 4px;
-    }
-
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #3fb950;
-    }
-
-    /* RIGHT COLUMN (changelog-style) */
     .rightbar {
       background: var(--panel);
       border-left: 1px solid var(--border);
@@ -249,10 +162,7 @@
       font-size: 13px;
     }
 
-    .right-title {
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
+    .right-title { font-size: 14px; margin-bottom: 8px; }
 
     .activity-item {
       border-left: 1px solid var(--border);
@@ -273,86 +183,82 @@
       top: 2px;
     }
 
-    .activity-item span {
-      display: block;
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 2px;
+    .activity-item span { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+    .right-section { margin-bottom: 24px; }
+
+    .right-cta { margin-bottom: 8px; }
+
+    /* LIVE DOT */
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--live);
+      box-shadow: 0 0 0 rgba(63,185,80,0.8);
+      animation: pulse 1.8s infinite;
     }
 
-    .right-section {
-      margin-bottom: 24px;
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(63,185,80,0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(63,185,80,0); }
+      100% { box-shadow: 0 0 0 0 rgba(63,185,80,0); }
     }
 
-    .right-cta {
-      margin-top: 8px;
-    }
-
-    /* SMALL */
     @media (max-width: 960px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-      .sidebar,
-      .rightbar {
-        display: none;
-      }
-      .main {
-        padding: 16px;
-      }
-      header {
-        padding: 0 10px;
-      }
-      .top-search {
-        margin: 0 8px;
-        max-width: 100%;
-      }
+      .layout { grid-template-columns: 1fr; }
+      .sidebar, .rightbar { display: none; }
+      .main { padding: 16px; }
+      header { padding: 0 10px; }
+      .top-search { margin: 0 8px; max-width: 100%; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">
-    <div class="triangle"></div>
-    ETHIQ
-  </div>
+  <div class=\"brand\"><div class="triangle"></div> ETHIQ</div>
   <input class="top-search" placeholder="Search roles, companies, docs…" />
-  <div class="top-right">Recruitment, with receipts</div>
+  <div class="top-right">Product and engineering recruitment</div>
 </header>
 
 <div class="layout">
 
-  <!-- LEFT SIDEBAR -->
   <aside class="sidebar">
     <h3>ETHIQ</h3>
     <div class="nav-list">
       <a href="#"><strong>Dashboard</strong></a>
-      <a href="#"><span>▸</span> Jobs</a>
-      <a href="#"><span>▸</span> Engineers</a>
-      <a href="#"><span>▸</span> Companies</a>
+      <a href="#">Jobs</a>
+      <a href="#">Engineers</a>
+      <a href="#">Companies</a>
     </div>
 
     <h3 style="margin-top:18px;">Public docs</h3>
     <div class="nav-list">
-      <a href="fees.html">fees.md</a>
       <a href="#">process.md</a>
       <a href="#">about.md</a>
+      <a href="#">salary.md</a>
+      <a href="#">recruitment-handbook.md</a>
     </div>
   </aside>
 
-  <!-- MAIN COLUMN -->
   <main class="main">
     <div class="page-title">
       <h1>ETHIQ / dashboard</h1>
-      <p>Specialist recruitment agency for engineers and tech product companies. UK · Europe · US.</p>
+      <p>We partner with product-led tech teams to build engineering, data, AI and product functions. UK · Europe · US.</p>
     </div>
 
-    <!-- FEATURED ROLES PANEL -->
+    <!-- WHAT IS ETHIQ -->
+        <section class="panel">
+      <div class="panel-header"><h2>What is ETHIQ</h2><span>Not an agency pitch</span></div>
+      <p>ETHIQ is a specialist search partner for ambitious tech product companies across the UK, Europe and the US. We work with a selected group of partners at any one time, stay close to the teams and the roadmap, and treat hiring as part of the product work. No spray and pray CV blasts, no pressure selling, no lock-in contracts. If our way of working fits, great. If it does not, that is fine too.</p>
+    </section>
+
+    <!-- FEATURED ROLES -->
     <section class="panel">
       <div class="panel-header">
-        <h2>Featured roles</h2>
-        <span>Source: live client briefs</span>
+        <h2>Featured roles <div class="live-dot"></div></h2>
+        <span>Live client briefs</span>
       </div>
 
       <div class="job">
@@ -369,107 +275,52 @@
       </div>
 
       <div class="cta-row">
-        <a class="btn primary" href="#">View jobs</a>
-        <a class="btn" href="#">Submit your CV</a>
+        <a class="btn primary" href="#">Browse roles</a>
+        <a class="btn" href="#">Talk to ETHIQ</a>
       </div>
     </section>
 
-    <!-- OUR FEES -->
+    <!-- FOUNDERS -->
     <section class="panel">
-      <div class="panel-header">
-        <h2>Our fees, in public</h2>
-        <span><a href="fees.html" style="color:var(--muted);">Open fees.md →</a></span>
-      </div>
-      <p>We are a specialist recruitment agency. We charge for outcomes, not activity.</p>
-      <div style="display:flex; gap:16px; margin-top:12px; font-size:14px;">
-        <div style="flex:1;">
-          <div class="pill"><div class="pill-dot"></div> ETHIQ</div>
-          <p style="margin-top:6px;">Flat 15% success-only fee on permanent hires. No retainers. No exclusivity traps.</p>
-        </div>
-        <div style="flex:1;">
-          <div class="pill">Traditional agency</div>
-          <p style="margin-top:6px;">20–30% fees, retainers, lock-ins, and volume pressure. We opted out of that model.</p>
-        </div>
-      </div>
+      <div class="panel-header"><h2>Founders</h2><span>Who you actually work with</span></div>
+      <p><strong>Anton Howe</strong> and <strong>Fraser Tate</strong> have spent the last decade hiring for high growth tech companies. Instead of lobbing CVs over the fence, they embed with product and engineering leaders as a forward deployed recruiting team. Performance is measured on the long-term impact of the people hired, not just how many placements land in a quarter.</p>
+      <p style="margin-top:10px; font-size:13px;"><a href="#">View the rest of the team ↗</a></p>
     </section>
 
-    <!-- PROCESS PANEL -->
+    <!-- RECENT OUTCOMES -->
     <section class="panel">
-      <div class="panel-header">
-        <h2>Our process, in public</h2>
-        <span>Draft · process.md</span>
-      </div>
-      <p style="margin-bottom:8px;">Simple, opinionated steps. No mystery meat.</p>
-      <ul style="font-size:14px; color:var(--muted); padding-left:18px; margin-bottom:6px;">
-        <li>Roles are rewritten with founders before going live.</li>
-        <li>Every engineer is screened for product thinking, not just keywords.</li>
-        <li>No bulk CV sends. Every intro is contextual and deliberate.</li>
-        <li>We stay involved until offer and acceptance.</li>
-      </ul>
-      <p style="font-size:12px; color:var(--muted); margin-top:4px;">Full playbook coming soon in process.md.</p>
-    </section>
-
-    <!-- VALUES / BOUNDARIES -->
-    <section class="panel">
-      <div class="panel-header">
-        <h2>Things we say no to</h2>
-        <span>Boundaries = signal</span>
-      </div>
+      <div class="panel-header"><h2>Recent outcomes</h2><span>Signal over noise</span></div>
       <ul style="font-size:14px; color:var(--muted); padding-left:18px;">
-        <li>Spray-and-pray hiring.</li>
-        <li>“Rockstar” job descriptions.</li>
-        <li>Hidden salary bands.</li>
-        <li>Pressure offers.</li>
-        <li>CV keyword bingo.</li>
+        <li>Founding engineer hired for a NY-based AI startup in 31 days.</li>
+        <li>First platform hire for a Series A infra company in Berlin.</li>
+        <li>Two senior product engineers placed into a UK devtools scaleup.</li>
       </ul>
     </section>
 
-    <!-- WHY ETHIQ -->
+    <!-- WORK WITH US OR DON'T -->
     <section class="panel">
-      <div class="panel-header">
-        <h2>Why ETHIQ exists</h2>
-        <span>Founder note</span>
+      <div class="panel-header"><h2>Work with us, or don’t</h2><span>Both are valid</span></div>
+      <p>If you want a high-signal, low-noise approach to hiring, we should talk. If you need volume at speed, we’re probably not your partner. Ei    <!-- WORK WITH US OR DON'T -->
+    <section class="panel">
+      <div class="panel-header"><h2>Work with us, or do not</h2><span>Both are fine</span></div>
+      <p>If you want a partner who will think about hiring with the same care you put into shipping product, we should talk. If what you need is a steady stream of loosely qualified CVs at speed, we are probably not your people. Either way, no hard feelings.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#">Talk to ETHIQ</a>
+        <a class="btn" href="#">Browse roles</a>
       </div>
-      <p style="font-size:14px; color:var(--muted);">
-        Hiring in tech got loud. Messy. Transactional. Too many tools, too many middle layers,
-        not enough thinking. ETHIQ is a quieter alternative: fewer roles, better signal, more
-        respect for engineers and founders.
-      </p>
-    </section>
-  </main>
-
-  <!-- RIGHT COLUMN (CHANGELOG VIBES) -->
-  <aside class="rightbar">
-    <div class="right-section">
-      <div class="right-title">Latest from our public files</div>
-
-      <div class="activity-item">
-        fees.md updated
-        <span>Flat 15% model published · Jan 2025</span>
-      </div>
-      <div class="activity-item">
-        New role added
-        <span>Platform Engineer · Remote EU</span>
-      </div>
-      <div class="activity-item">
-        process.md draft created
-        <span>Screening and intro steps written</span>
+    </section>an>How our recruitment process works</span>
       </div>
     </div>
 
     <div class="right-section">
       <div class="right-title">Start here</div>
-      <div class="right-cta">
-        <a class="btn primary" href="#">Apply for roles</a>
-      </div>
-      <div class="right-cta">
-        <a class="btn" href="#">Post a role</a>
-      </div>
+      <div class="right-cta"><a class="btn primary" href="#">Browse roles</a></div>
+      <div class="right-cta"><a class="btn" href="#">Talk to ETHIQ</a></div>
     </div>
 
     <div class="right-section" style="font-size:12px; color:var(--muted);">
       UK · Europe · US<br />
-      Specialist recruitment for product-led tech teams.
+      Hiring for product-led tech companies.
     </div>
   </aside>
 
