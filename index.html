@@ -13,12 +13,17 @@
       --border: #30363d;
       --text: #e6edf3;
       --muted: #8b949e;
-      --accent: #ff2f92;       
-      --accent-dark: #c41f72;  
+      --accent: #ff2f92;
+      --accent-dark: #c41f72;
       --live: #3fb950;
+      --tag-bg: #1f2933;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
@@ -28,9 +33,13 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     /* HEADER */
+
     header {
       height: 56px;
       background: #010409;
@@ -41,7 +50,13 @@
       padding: 0 16px;
     }
 
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+    }
 
     .triangle {
       width: 0;
@@ -62,7 +77,11 @@
       height: 34px;
       font-size: 13px;
       color: var(--text);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04) inset;
+    }
+
+    .top-search::placeholder {
+      color: var(--muted);
     }
 
     .top-right {
@@ -74,6 +93,7 @@
     }
 
     /* MAIN LAYOUT */
+
     .layout {
       display: grid;
       grid-template-columns: 260px minmax(0, 1fr) 300px;
@@ -81,6 +101,7 @@
     }
 
     /* SIDEBAR */
+
     .sidebar {
       background: var(--panel);
       border-right: 1px solid var(--border);
@@ -104,19 +125,60 @@
       transition: background 0.15s ease;
     }
 
-    /* softer hover, no black block */
     .nav-list a:hover {
-      background: rgba(110,118,129,0.1);
+      background: rgba(110, 118, 129, 0.1);
     }
 
     /* MAIN COLUMN */
-    .main { padding: 24px; }
 
-    .page-title { margin-bottom: 16px; }
+    .main {
+      padding: 24px;
+    }
 
-    .page-title h1 { font-size: 22px; margin-bottom: 4px; }
+    .page-title {
+      margin-bottom: 8px;
+    }
 
-    .page-title p { font-size: 13px; color: var(--muted); }
+    .page-title h1 {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .page-title p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* REPO HEADER */
+
+    .repo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .repo-path {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .repo-meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      font-size: 11px;
+    }
+
+    /* PANELS */
 
     .panel {
       background: var(--panel);
@@ -133,20 +195,72 @@
       margin-bottom: 10px;
     }
 
-    .panel-header h2 { font-size: 16px; display: flex; align-items: center; gap: 8px; }
+    .panel-header h2 {
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-    .panel-header span { font-size: 12px; color: var(--muted); }
+    .panel-header span {
+      font-size: 12px;
+      color: var(--muted);
+    }
 
-    .panel p { font-size: 14px; color: var(--muted); }
+    .panel p {
+      font-size: 14px;
+      color: var(--muted);
+    }
 
-    .job { padding: 10px 0; border-top: 1px solid var(--border); font-size: 14px; }
+    .job {
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
 
-    .job:first-child { border-top: none; }
+    .job:first-child {
+      border-top: none;
+    }
 
-    .job-title { font-weight: 500; }
-    .job-meta { font-size: 13px; color: var(--muted); }
+    .job-title {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .job-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .job-tags {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 2px 8px;
+      background: var(--tag-bg);
+      color: var(--muted);
+    }
+
+    .tag.primary {
+      background: rgba(255, 47, 146, 0.12);
+      color: var(--accent);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
 
     .btn {
       padding: 9px 16px;
@@ -167,9 +281,49 @@
       color: #ffffff;
     }
 
-    .btn:active { transform: translateY(1px); }
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    /* CODE BLOCK */
+
+    pre {
+      background: #0b1016;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 12px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      margin-top: 10px;
+    }
+
+    code {
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    /* FOUNDERS LAYOUT */
+
+    .founders-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-top: 4px;
+    }
+
+    .founder-photo {
+      max-width: 320px;
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .founder-text {
+      flex: 1;
+    }
 
     /* RIGHTBAR */
+
     .rightbar {
       background: var(--panel);
       border-left: 1px solid var(--border);
@@ -177,7 +331,10 @@
       font-size: 13px;
     }
 
-    .right-title { font-size: 14px; margin-bottom: 8px; }
+    .right-title {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
 
     .activity-item {
       border-left: 1px solid var(--border);
@@ -198,38 +355,78 @@
       top: 2px;
     }
 
-    .activity-item span { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .activity-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
 
-    .right-section { margin-bottom: 24px; }
+    .right-section {
+      margin-bottom: 24px;
+    }
 
-    .right-cta { margin-bottom: 8px; }
+    .right-cta {
+      margin-bottom: 8px;
+    }
 
     /* LIVE DOT */
+
     .live-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
       background: var(--live);
-      box-shadow: 0 0 0 rgba(63,185,80,0.8);
+      box-shadow: 0 0 0 rgba(63, 185, 80, 0.8);
       animation: pulse 1.8s infinite;
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(63,185,80,0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(63,185,80,0); }
-      100% { box-shadow: 0 0 0 0 rgba(63,185,80,0); }
+      0% {
+        box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(63, 185, 80, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(63, 185, 80, 0);
+      }
     }
 
     /* RESPONSIVE */
+
     @media (max-width: 960px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar, .rightbar { display: none; }
-      .main { padding: 16px; }
-      header { padding: 0 10px; }
-      .top-search { margin: 0 8px; max-width: 100%; }
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar,
+      .rightbar {
+        display: none;
+      }
+      .main {
+        padding: 16px;
+      }
+      header {
+        padding: 0 10px;
+      }
+      .top-search {
+        margin: 0 8px;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .founders-wrapper {
+        flex-direction: column;
+      }
+
+      .founder-photo {
+        max-width: 100%;
+      }
     }
 
     /* EXTRA MOBILE BREATHING ROOM */
+
     @media (max-width: 540px) {
       header {
         height: auto;
@@ -238,7 +435,9 @@
         padding: 10px;
       }
 
-      .brand { font-size: 14px; }
+      .brand {
+        font-size: 14px;
+      }
 
       .top-search {
         order: 3;
@@ -248,10 +447,16 @@
         padding: 10px 12px;
       }
 
-      .top-right { display: none; }
+      .top-right {
+        display: none;
+      }
 
-      .page-title h1 { font-size: 20px; }
-      .page-title p  { font-size: 14px; }
+      .page-title h1 {
+        font-size: 20px;
+      }
+      .page-title p {
+        font-size: 14px;
+      }
 
       .panel {
         padding: 16px;
@@ -264,12 +469,22 @@
         gap: 4px;
       }
 
-      .panel-header h2 { font-size: 15px; }
-      .panel-header span { font-size: 12px; }
+      .panel-header h2 {
+        font-size: 15px;
+      }
+      .panel-header span {
+        font-size: 12px;
+      }
 
-      .job { padding: 14px 0; }
-      .job-title { font-size: 15px; }
-      .job-meta  { font-size: 13px; }
+      .job {
+        padding: 14px 0;
+      }
+      .job-title {
+        font-size: 15px;
+      }
+      .job-meta {
+        font-size: 13px;
+      }
 
       .cta-row {
         flex-direction: column;
@@ -284,10 +499,13 @@
         text-align: center;
       }
 
-      .live-dot { margin-left: 4px; }
+      .live-dot {
+        margin-left: 4px;
+      }
     }
 
     /* LIGHT MODE OVERRIDES */
+
     body.light {
       --bg: #f7f6f3;
       --panel: #ffffff;
@@ -298,11 +516,19 @@
       --accent: #ff2f92;
       --accent-dark: #c41f72;
       --live: #22c55e;
+      --tag-bg: #eef2ff;
     }
 
-    body.light header { background:#f6f8fa; }
+    body.light pre {
+      background: #0f172a;
+    }
+
+    body.light header {
+      background: #f6f8fa;
+    }
 
     /* TOGGLE BUTTON */
+
     .mode-toggle {
       background: var(--panel-soft);
       border: 1px solid var(--border);
@@ -314,15 +540,23 @@
       transition: all 0.15s ease;
     }
 
-    .mode-toggle:hover { opacity: 0.85; }
-
+    .mode-toggle:hover {
+      opacity: 0.85;
+    }
   </style>
 </head>
 <body class="light">
 
 <header>
-  <div class="brand"><div class="triangle"></div> ETHIQ</div>
-  <input class="top-search" placeholder="Search roles, companies, docs…" />
+  <div class="brand">
+    <div class="triangle"></div>
+    ETHIQ
+  </div>
+  <input
+    class="top-search"
+    id="globalSearch"
+    placeholder="Search roles, companies, docs… (press / to focus)"
+  />
   <div class="top-right">
     <span>Product and engineering recruitment</span>
     <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark mode">🌙</button>
@@ -330,12 +564,11 @@
 </header>
 
 <div class="layout">
-
   <aside class="sidebar">
     <h3>ETHIQ</h3>
     <div class="nav-list">
       <a href="#"><strong>Dashboard</strong></a>
-      <a href="#">Jobs</a>
+      <a href="#">Open roles (issues)</a>
       <a href="#">Engineers</a>
       <a href="#">Companies</a>
     </div>
@@ -346,6 +579,7 @@
       <a href="#">about.md</a>
       <a href="#">salary.md</a>
       <a href="#">recruitment-handbook.md</a>
+      <a href="#">roadmap.md</a>
     </div>
   </aside>
 
@@ -355,38 +589,99 @@
       <p>Product and engineering hiring, written down and kept honest. UK · Europe · US.</p>
     </div>
 
+    <div class="repo-header">
+      <div class="repo-path">ethiq / search-partner</div>
+      <div class="repo-meta">
+        <span>★ 34</span>
+        <span class="pill">3 active searches</span>
+        <span>Updated 3 days ago</span>
+      </div>
+    </div>
+
     <!-- WHAT IS ETHIQ -->
+
     <section class="panel">
       <div class="panel-header">
         <h2>What is ETHIQ</h2>
         <span>Not an agency pitch</span>
       </div>
       <p>
-        ETHIQ is a specialist search partner for ambitious tech product companies across the UK, Europe and the US.
-        We work with a selected group of partners at any one time, stay close to the teams and the roadmap, and treat
-        hiring as part of the product work. No CV blasts, no pressure selling, no lock-in contracts. If our way of
-        working makes sense to you, great. If it does not, that is fine too.
+        ETHIQ is a specialist search partner for ambitious tech product companies. We hire engineers, data and AI
+        profiles, and product leaders for teams that treat hiring as product work, not admin. We embed with founders
+        and product leaders, sit close to the roadmap, and bias for long term impact over short term headcount.
+      </p>
+      <p style="margin-top:8px;">
+        ETHIQ is not an agency. It behaves like an extension of your product team. No CV blasts, no pressure selling,
+        no lock in contracts. If that sounds right, great. If it does not, that is fine too.
       </p>
     </section>
 
-    <!-- FEATURED ROLES -->
+    <!-- CONFIG YAML -->
+
     <section class="panel">
       <div class="panel-header">
-        <h2>Featured roles <span class="live-dot"></span></h2>
-        <span>Live client briefs</span>
+        <h2>ethiq.config.yaml</h2>
+        <span>How we think about the work</span>
+      </div>
+      <pre><code>ethiq:
+  model: search-partner
+  specialises_in:
+    - product_engineering
+    - platform_and_infra
+    - devtools
+    - data_and_ai
+  values:
+    - no_cv_spam
+    - no_lockins
+    - deep_partnership
+  locations: [UK, EU, US]
+  search_capacity:
+    active_partners: 3
+    notes: small_on_purpose</code></pre>
+    </section>
+
+    <!-- OPEN ROLES -->
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Open roles <span class="live-dot"></span></h2>
+        <span>3 issues in hiring backlog</span>
       </div>
 
       <div class="job">
-        <div class="job-title">Senior Product Engineer</div>
-        <div class="job-meta">London · £95k–£115k · TypeScript, React, Node</div>
+        <div class="job-title">
+          Senior Product Engineer
+          <span class="tag primary">New</span>
+        </div>
+        <div class="job-meta">London · £95k - £115k · Hybrid</div>
+        <div class="job-tags">
+          <span class="tag">TypeScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Node</span>
+          <span class="tag">Product mindset</span>
+        </div>
       </div>
+
       <div class="job">
         <div class="job-title">Platform Engineer</div>
-        <div class="job-meta">Remote EU · €90k–€110k · Go, Kubernetes, GCP</div>
+        <div class="job-meta">Remote EU · €90k - €110k · Seed to Series B</div>
+        <div class="job-tags">
+          <span class="tag">Go</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Developer experience</span>
+        </div>
       </div>
+
       <div class="job">
-        <div class="job-title">Founding Mobile Engineer</div>
-        <div class="job-meta">New York · $150k–$180k · Swift / React Native</div>
+        <div class="job-title">Founding ML Engineer</div>
+        <div class="job-meta">Remote UK or EU · Comp with equity</div>
+        <div class="job-tags">
+          <span class="tag">Python</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">MLOps</span>
+          <span class="tag">Early stage</span>
+        </div>
       </div>
 
       <div class="cta-row">
@@ -395,87 +690,208 @@
       </div>
     </section>
 
-    <!-- FOUNDERS -->
-    <section class="panel">
-      <div class="panel-header"><h2>Founders</h2><span>Who you actually work with</span></div>
-      <p>
-        <strong>Anton Howe</strong> and <strong>Fraser Tait</strong> have spent the last decade hiring for high growth
-        tech companies. Instead of lobbing CVs over the fence, they embed with product and engineering leaders as a
-        forward deployed recruiting team. Performance is measured on the long-term impact of the people hired, not just
-        how many placements land in a quarter.
-      </p>
-      <p style="margin-top:10px; font-size:13px;"><a href="#">View the rest of the team ↗</a></p>
-    </section>
+    <!-- RECENT SEARCHES -->
 
-    <!-- RECENT OUTCOMES -->
     <section class="panel">
-      <div class="panel-header"><h2>Recent outcomes</h2><span>Recent placements</span></div>
+      <div class="panel-header">
+        <h2>Recent searches</h2>
+        <span>Signals from current work</span>
+      </div>
       <ul style="font-size:14px; color:var(--muted); padding-left:18px;">
-        <li>Founding engineer hired for a NY-based AI startup in 31 days.</li>
+        <li>Founding ML engineer for a pre seed FinOps AI product.</li>
+        <li>First staff engineer for an early devtools startup in London.</li>
         <li>First platform hire for a Series A infra company in Berlin.</li>
-        <li>Two senior product engineers placed into a UK devtools scaleup.</li>
+        <li>First PM hire for a B2B analytics SaaS team.</li>
       </ul>
     </section>
 
-    <!-- WORKING WITH ETHIQ -->
+    <!-- FOUNDERS WITH IMAGE -->
+
     <section class="panel">
-      <div class="panel-header"><h2>Working with ETHIQ</h2><span>For teams who care about hiring</span></div>
+      <div class="panel-header">
+        <h2>Founders</h2>
+        <span>Who you actually work with</span>
+      </div>
+
+      <div class="founders-wrapper">
+        <img
+          src="images/founders.png"
+          class="founder-photo"
+          alt="ETHIQ founders Anton Howe and Fraser Tait"
+        />
+
+        <div class="founder-text">
+          <p>
+            <strong>Anton Howe</strong> and <strong>Fraser Tait</strong> have spent the last decade hiring for
+            high growth tech companies. Instead of lobbing CVs over the fence, they embed with product and
+            engineering leaders as a forward deployed recruiting team.
+          </p>
+          <p style="margin-top:8px;">
+            They are often the only external people invited into private product and org design discussions.
+            Performance is measured on the impact of the people hired six to twelve months later, not only on
+            how many placements land in a quarter.
+          </p>
+          <p style="margin-top:10px; font-size:13px;">
+            <a href="#">View the rest of the team ↗</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE EVALUATE ENGINEERS -->
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>How we evaluate engineers</h2>
+        <span>For founders and candidates</span>
+      </div>
+      <ul style="font-size:14px; color:var(--muted); padding-left:18px;">
+        <li>Context first: understanding the problem and constraints before code.</li>
+        <li>Reasoning over puzzles: how you arrive at an approach matters more than trivia.</li>
+        <li>Impact trajectory: what you shipped and unblocked, not only titles held.</li>
+        <li>Collaboration: PRs, docs and feedback that other people enjoy working with.</li>
+        <li>No LeetCode style tests and no surprise whiteboard gotchas.</li>
+      </ul>
+    </section>
+
+    <!-- ENGINEERING VALUES -->
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Engineering values we look for</h2>
+        <span>Patterns we keep seeing in great hires</span>
+      </div>
+      <ul style="font-size:14px; color:var(--muted); padding-left:18px;">
+        <li>Ownership loops: closing the loop from bug or idea through to deployed change.</li>
+        <li>Strong debugging: curiosity, systems thinking, and a low drama approach to outages.</li>
+        <li>Leverage: picks tools and approaches that buy future speed, not just today.</li>
+        <li>Clear writing: can explain tradeoffs in plain language to non engineers.</li>
+      </ul>
+    </section>
+
+    <!-- CANDIDATE PREP -->
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>What candidates get before interviews</h2>
+        <span>No one walks in blind</span>
+      </div>
+      <ul style="font-size:14px; color:var(--muted); padding-left:18px;">
+        <li>Context on the product, team and runway in normal human language.</li>
+        <li>A clear outline of the interview stages and what each round is testing.</li>
+        <li>Preparation notes tailored to the company, not generic interview tips.</li>
+        <li>Honest notes on risks and unknowns so they can make a real decision.</li>
+      </ul>
+    </section>
+
+    <!-- PRICING PHILOSOPHY -->
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Pricing philosophy</h2>
+        <span>Simple and predictable</span>
+      </div>
       <p>
-        If you want a partner who will think about hiring with the same care you put into shipping product, we should
-        talk. If what you need is a steady stream of loosely qualified CVs at speed, we are probably not the right fit.
-        Either way, no hard feelings.
+        We price searches based on seniority and complexity, not on who negotiates harder on the day. Same
+        effort means the same fee. No retainers by default and no long lock in contracts. If we are not
+        adding value, you should be able to stop.
+      </p>
+    </section>
+
+    <!-- WORKING WITH ETHIQ -->
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Working with ETHIQ</h2>
+        <span>For teams who care about hiring</span>
+      </div>
+      <p>
+        If you want a partner who will think about hiring with the same care you put into shipping product, we
+        should talk. If what you need is a steady stream of loosely qualified CVs at speed, we are probably
+        not the right fit. Either way, no hard feelings.
+      </p>
+      <p style="margin-top:8px;">
+        We only work with a small set of active partners at any one time so that we can stay close to the
+        work. Search capacity is capped on purpose.
       </p>
       <div class="cta-row">
         <a class="btn primary" href="#">Talk to ETHIQ</a>
         <a class="btn" href="#">Browse roles</a>
       </div>
     </section>
-
   </main>
 
   <aside class="rightbar">
     <div class="right-section">
-      <div class="right-title">Latest updates</div>
+      <div class="right-title">Changelog</div>
 
-      <div class="activity-item">New role added
-        <span>Platform Engineer · Remote EU</span>
+      <div class="activity-item">
+        Added founding ML engineer search
+        <span>New role in open issues</span>
       </div>
-      <div class="activity-item">Handbook draft published
-        <span>How our recruitment process works</span>
+      <div class="activity-item">
+        Updated hiring handbook
+        <span>Refined interview prep for candidates</span>
+      </div>
+      <div class="activity-item">
+        Tweaked evaluation criteria
+        <span>More emphasis on writing and debugging</span>
       </div>
     </div>
 
     <div class="right-section">
+      <div class="right-title">Roadmap</div>
+      <ul style="list-style:none; padding-left:0; font-size:13px; color:var(--muted);">
+        <li>▢ Public recruitment handbook v1</li>
+        <li>▢ Async scorecards for founders</li>
+        <li>▢ Open salary and equity benchmarks</li>
+      </ul>
+    </div>
+
+    <div class="right-section">
       <div class="right-title">Start here</div>
-      <div class="right-cta"><a class="btn primary" href="#">Browse roles</a></div>
-      <div class="right-cta"><a class="btn" href="#">Talk to ETHIQ</a></div>
+      <div class="right-cta">
+        <a class="btn primary" href="#">Browse roles</a>
+      </div>
+      <div class="right-cta">
+        <a class="btn" href="#">Talk to ETHIQ</a>
+      </div>
     </div>
 
     <div class="right-section" style="font-size:12px; color:var(--muted);">
       UK · Europe · US<br />
-      Hiring for product-led tech companies.
+      Hiring for product led tech companies.
     </div>
   </aside>
-
 </div>
 
 <script>
-  const toggle = document.getElementById('modeToggle');
+  const toggle = document.getElementById("modeToggle");
   const body = document.body;
+  const searchInput = document.getElementById("globalSearch");
 
-  // Load saved preference
-  if (localStorage.getItem('ethiq-theme') === 'dark') {
-    body.classList.remove('light');
-    body.classList.add('dark');
-    toggle.textContent = '☀️';
+  // Load saved theme preference
+  if (localStorage.getItem("ethiq-theme") === "dark") {
+    body.classList.remove("light");
+    body.classList.add("dark");
+    toggle.textContent = "☀️";
   }
 
-  toggle.addEventListener('click', () => {
-    const isLight = body.classList.contains('light');
-    body.classList.toggle('light', !isLight);
-    body.classList.toggle('dark', isLight);
-    toggle.textContent = isLight ? '☀️' : '🌙';
-    localStorage.setItem('ethiq-theme', isLight ? 'dark' : 'light');
+  toggle.addEventListener("click", () => {
+    const isLight = body.classList.contains("light");
+    body.classList.toggle("light", !isLight);
+    body.classList.toggle("dark", isLight);
+    toggle.textContent = isLight ? "☀️" : "🌙";
+    localStorage.setItem("ethiq-theme", isLight ? "dark" : "light");
+  });
+
+  // Keyboard shortcut: / focuses search
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "/" && document.activeElement !== searchInput) {
+      event.preventDefault();
+      searchInput.focus();
+      searchInput.select();
+    }
   });
 </script>
 
