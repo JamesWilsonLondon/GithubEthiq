@@ -107,9 +107,9 @@
     .panel {
       background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 18px 12px;
-      margin-bottom: 16px;
+      border-radius: 16px;
+      padding: 20px 20px 14px;
+      margin-bottom: 20px;
     }
 
     .panel-header {
@@ -135,14 +135,13 @@
     .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 
     .btn {
-      padding: 8px 16px;
+      padding: 9px 16px;
       border-radius: 999px;
       border: 1px solid var(--border);
       font-size: 13px;
       cursor: pointer;
       background: var(--panel-soft);
       color: var(--text);
-      box-shadow: 0 4px 0 rgba(0,0,0,0.4);
       transition: all 0.12s ease;
       font-weight: 500;
       display: inline-block;
@@ -151,11 +150,10 @@
     .btn.primary {
       background: var(--accent);
       border-color: var(--accent);
-      color: #fff;
-      box-shadow: 0 4px 0 var(--accent-dark);
+      color: #ffffff;
     }
 
-    .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.4); }
+    .btn:active { transform: translateY(1px); }
 
     .rightbar {
       background: var(--panel);
@@ -278,16 +276,18 @@
 
     /* LIGHT MODE OVERRIDES */
     body.light {
-      --bg: #ffffff;
-      --panel: #f6f8fa;
+      --bg: #f7f6f3;
+      --panel: #ffffff;
       --panel-soft: #ffffff;
-      --border: #d0d7de;
-      --text: #1f2328;
-      --muted: #57606a;
+      --border: #e3e3e0;
+      --text: #111827;
+      --muted: #6b7280;
       --accent: #ff2f92;
       --accent-dark: #c41f72;
-      --live: #2da44e;
+      --live: #22c55e;
     }
+
+    body.light header { background:#f7f6f3; }
 
     body.light header { background:#f6f8fa; }
 
@@ -340,14 +340,14 @@
 
   <main class="main">
     <div class="page-title">
-      <h1>ETHIQ / dashboard</h1>
-      <p>We partner with product-led tech teams to build engineering, data, AI and product functions. UK · Europe · US.</p>
+      <h1>ETHIQ</h1>
+      <p>Product and engineering hiring, written down and kept honest. UK · Europe · US.</p>
     </div>
 
     <!-- WHAT IS ETHIQ -->
-        <section class="panel">
+            <section class="panel">
       <div class="panel-header"><h2>What is ETHIQ</h2><span>Not an agency pitch</span></div>
-      <p>ETHIQ is a specialist search partner for ambitious tech product companies across the UK, Europe and the US. We work with a selected group of partners at any one time, stay close to the teams and the roadmap, and treat hiring as part of the product work. No spray and pray CV blasts, no pressure selling, no lock-in contracts. If our way of working fits, great. If it does not, that is fine too.</p>
+      <p>ETHIQ is a specialist search partner for ambitious tech product companies across the UK, Europe and the US. We work with a selected group of partners at any one time, stay close to the teams and the roadmap, and treat hiring as part of the product work. No CV blasts, no pressure selling, no lock-in contracts. If our way of working makes sense to you, great. If it does not, that is fine too.</p>
     </section>
 
     <!-- FEATURED ROLES -->
@@ -395,8 +395,8 @@
 
     <!-- WORK WITH US OR DON'T -->
     <section class="panel">
-      <div class="panel-header"><h2>Work with us, or do not</h2><span>Both are fine</span></div>
-      <p>If you want a partner who will think about hiring with the same care you put into shipping product, we should talk. If what you need is a steady stream of loosely qualified CVs at speed, we are probably not your people. Either way, no hard feelings.</p>
+            <div class="panel-header"><h2>Working with ETHIQ</h2><span>For teams who care about hiring</span></div>
+      <p>If you want a partner who will think about hiring with the same care you put into shipping product, we should talk. If what you need is a steady stream of loosely qualified CVs at speed, we are probably not the right fit. Either way, no hard feelings.</p>
       <div class="cta-row">
         <a class="btn primary" href="#">Talk to ETHIQ</a>
         <a class="btn" href="#">Browse roles</a>
