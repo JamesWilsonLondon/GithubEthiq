@@ -598,23 +598,58 @@
       </div>
     </div>
 
-    <!-- WHAT IS ETHIQ -->
-
+        <!-- CONFIG YAML (code window style, no image) -->
     <section class="panel">
       <div class="panel-header">
-        <h2>What is ETHIQ</h2>
-        <span>Not an agency pitch</span>
+        <h2>ethiq.config.yaml</h2>
+        <span>How we think about the work</span>
       </div>
-      <p>
-        ETHIQ is a specialist search partner for ambitious tech product companies. We hire engineers, data and AI
-        profiles, and product leaders for teams that treat hiring as product work, not admin. We embed with founders
-        and product leaders, sit close to the roadmap, and bias for long term impact over short term headcount.
-      </p>
-      <p style="margin-top:8px;">
-        ETHIQ is not an agency. It behaves like an extension of your product team. No CV blasts, no pressure selling,
-        no lock in contracts. If that sounds right, great. If it does not, that is fine too.
+
+      <div class="code-window">
+        <div class="code-window-header">
+          <div class="code-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="code-filename">ethiq.config.yaml</span>
+          <span class="code-status">ethiq / search-partner</span>
+        </div>
+
+        <div class="code-window-body">
+          <pre><code># ethiq.config.yaml
+            
+target_roles:
+  - product_engineer
+  - platform_engineer
+  - founding_engineer
+  - ml_engineer
+
+markets:
+  - uk
+  - europe
+  - us
+
+operating_principles:
+  embedded: true
+  cv_blind: true
+  async_updates: true
+  founder_access: true
+
+quality_bar:
+  depth_before_speed: true
+  impact_over_headcount: true
+  reject_to_protect_team: true</code></pre>
+        </div>
+      </div>
+
+      <p style="margin-top:14px; font-size:14px; color:var(--muted);">
+        ETHIQ behaves like a product function. Everything we do can be expressed, audited,
+        and improved. This config is a simplified version of how we structure roles, markets,
+        and operating principles.
       </p>
     </section>
+
 
     <!-- CONFIG YAML -->
 
