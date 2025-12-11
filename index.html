@@ -381,7 +381,7 @@
       }
     }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE: TABLET / SMALL LAPTOP */
 
     @media (max-width: 960px) {
       .layout {
@@ -407,7 +407,7 @@
         width: 100%;
       }
       .top-right span {
-        display: none; /* hide tagline on small screens */
+        display: none;
       }
     }
 
@@ -432,23 +432,47 @@
       }
     }
 
-    /* EXTRA MOBILE BREATHING ROOM */
+    /* EXTRA MOBILE BREATHING ROOM + HEADER TWEAK */
 
     @media (max-width: 540px) {
+      /* Header: put search and toggle on same row */
+      header {
+        padding: 8px 10px;
+        height: 56px;
+        flex-wrap: nowrap;
+        gap: 8px;
+      }
+
+      .brand {
+        font-size: 14px;
+      }
+
+      .top-search {
+        order: 2;
+        margin: 0 8px;
+        max-width: none;
+        width: auto;
+      }
+
+      .top-right {
+        order: 3;
+      }
+
+      .top-right span {
+        display: none;
+      }
+
       .page-title {
+        margin-top: 12px;
         margin-bottom: 18px;
       }
 
       .page-title h1 {
         font-size: 20px;
       }
+
       .page-title p {
         font-size: 14px;
-      }
-
-      /* hide repo header completely on small phones */
-      .repo-header {
-        display: none;
       }
 
       .panel {
@@ -468,9 +492,11 @@
       .job {
         padding: 14px 0;
       }
+
       .job-title {
         font-size: 15px;
       }
+
       .job-meta {
         font-size: 13px;
       }
@@ -490,6 +516,10 @@
 
       .live-dot {
         margin-left: 4px;
+      }
+
+      .repo-header {
+        display: none;
       }
     }
 
