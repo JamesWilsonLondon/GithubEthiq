@@ -136,7 +136,7 @@
     }
 
     .page-title {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .page-title h1 {
@@ -435,11 +435,20 @@
     /* EXTRA MOBILE BREATHING ROOM */
 
     @media (max-width: 540px) {
+      .page-title {
+        margin-bottom: 18px;
+      }
+
       .page-title h1 {
         font-size: 20px;
       }
       .page-title p {
         font-size: 14px;
+      }
+
+      /* hide repo header completely on small phones */
+      .repo-header {
+        display: none;
       }
 
       .panel {
